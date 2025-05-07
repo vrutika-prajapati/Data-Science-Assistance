@@ -91,26 +91,6 @@ class ChatBot:
             # Return None if no Python code block is found
             return None
 
-    def execute_python_script(self, script_path: str) -> Any:
-        """
-        Executes a locally existing Python script.
-
-        Args:
-            script_path (str): The file path of the Python script to be executed.
-
-        Returns:
-            Any: The output of the executed script.
-        """
-        try:
-            # Execute the Python script
-            result = subprocess.run(['python', script_path], capture_output=True, text=True, check=True)
-
-            # Return the output of the script
-            return result.stdout
-        except subprocess.CalledProcessError as e:
-            # Handle any errors that occur during script execution
-            print(f"Error executing script: {e}")
-            return None
 
     def run_mistral_agent(self):
         """
